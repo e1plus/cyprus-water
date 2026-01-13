@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyprus Water Levels Dashboard</title>
+    <title>Cyprus Water Levels | Real-time Reservoir Dashboard</title>
+    <meta name="description" content="Real-time dashboard monitoring water reservoir levels, dam capacities, and daily inflows in Cyprus. View historical trends and current water security data.">
+    <meta name="keywords" content="Cyprus water, reservoir levels, dam capacity, water storage, Cyprus drought, water inflow, Kouris dam">
+    <meta name="author" content="e1+">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cyprus Water Levels | Real-time Reservoir Dashboard">
+    <meta property="og:description" content="Real-time dashboard monitoring water reservoir levels, dam capacities, and daily inflows in Cyprus.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Cyprus Water Levels | Real-time Reservoir Dashboard">
+    <meta property="twitter:description" content="Real-time dashboard monitoring water reservoir levels, dam capacities, and daily inflows in Cyprus.">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js -->
@@ -30,6 +44,7 @@
         <header class="mb-8 text-center sm:text-left">
             <h1 class="text-3xl font-bold text-blue-900 mb-2">Cyprus Water Reservoirs</h1>
             <p class="text-blue-600">Real-time water level monitoring dashboard</p>
+            <p class="text-xs text-gray-500 mt-1">* MCM = Million Cubic Meters</p>
         </header>
 
         <!-- Loading State -->
@@ -69,8 +84,8 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-500">Total Volume</p>
-                        <h2 id="total-capacity" class="text-3xl font-bold text-gray-900">-- MCM</h2>
+                        <p class="text-sm font-medium text-gray-500">Current Storage</p>
+                        <h2 id="total-capacity" class="text-2xl font-bold text-gray-900">-- MCM</h2>
                     </div>
                 </div>
 
@@ -98,6 +113,22 @@
                     </div>
                 </div>
 
+                <!-- Daily Inflows Chart -->
+                <div class="bg-white rounded-xl shadow-lg border border-blue-50 p-6 h-[400px] lg:col-span-2 relative">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Daily Inflows (Current Month)</h3>
+                    <div class="h-[320px]">
+                        <canvas id="dailyInflowsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Monthly Inflows Comparison Chart -->
+                <div class="bg-white rounded-xl shadow-lg border border-blue-50 p-6 h-[400px] lg:col-span-2 relative">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Monthly Inflows Comparison (Last 6 Years)</h3>
+                    <div class="h-[320px]">
+                        <canvas id="monthlyComparisonChart"></canvas>
+                    </div>
+                </div>
+
                 <!-- Dams Breakdown Chart -->
                 <div class="bg-white rounded-xl shadow-lg border border-blue-50 p-6 h-[400px] relative">
                     <h3 class="text-lg font-semibold text-gray-700 mb-4">Dam Storage Breakdown (MCM)</h3>
@@ -113,27 +144,30 @@
                         <canvas id="inflowsChart"></canvas>
                     </div>
                 </div>
-
-                <!-- Monthly Inflows Comparison Chart -->
-                <div class="bg-white rounded-xl shadow-lg border border-blue-50 p-6 h-[400px] lg:col-span-2 relative">
-                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Monthly Inflows Comparison (Last 6 Years)</h3>
-                    <div class="h-[320px]">
-                        <canvas id="monthlyComparisonChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Daily Inflows Chart -->
-                <div class="bg-white rounded-xl shadow-lg border border-blue-50 p-6 h-[400px] lg:col-span-2 relative">
-                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Daily Inflows (Current Month)</h3>
-                    <div class="h-[320px]">
-                        <canvas id="dailyInflowsChart"></canvas>
-                    </div>
+            </div>
+            
+            <!-- About Section -->
+            <div class="bg-blue-900 text-blue-50 rounded-xl shadow-lg p-8 mt-12">
+                <div class="max-w-3xl mx-auto text-center space-y-4">
+                    <h2 class="text-2xl font-bold text-white">About This Project</h2>
+                    <p class="leading-relaxed text-blue-100">
+                        This dashboard provides a comprehensive real-time view of Cyprus's water resources. 
+                        By aggregating data from official sources, we aim to offer transparent insights into the island's water security, 
+                        tracking reservoir levels, daily inflows, and historical trends to help visualize the impact of seasonal changes and droughts.
+                    </p>
                 </div>
             </div>
             
-            <footer class="text-center text-gray-400 text-sm mt-8">
-                <p>Data provided by Cyprus Water Development Department</p>
-                <p class="text-xs mt-1">* MCM = Million Cubic Meters</p>
+            <footer class="text-center text-gray-500 text-sm mt-12 pb-8 space-y-2">
+                <p>Developed by <a href="https://e1plus.de" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">e1+</a></p>
+                <div class="text-xs text-gray-400 space-x-2">
+                    <span>Special thanks to:</span>
+                    <a href="https://www.moa.gov.cy/moa/wdd/wdd.nsf/index_en/index_en?opendocument" target="_blank" class="hover:text-blue-500 underline">Cyprus Water Development Department</a>
+                    <span>&bull;</span>
+                    <a href="https://cyprus-water.appspot.com/guide" target="_blank" class="hover:text-blue-500 underline">Cyprus Water API</a>
+                    <span>by</span>
+                    <a href="https://github.com/nearchos" target="_blank" class="hover:text-blue-500 underline">@nearchos</a>
+                </div>
             </footer>
         </div>
     </div>
